@@ -1,0 +1,74 @@
+---
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import type { CallToAction } from '~/types';
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  content?: string;
+  actions?: string | CallToAction[];
+  image?: string | any; // TODO: find HTMLElementProps
+}
+
+const {
+  id,
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  content = await Astro.slots.render('content'),
+  actions = await Astro.slots.render('actions'),
+  image = await Astro.slots.render('image'),
+} = Astro.props;
+---
+
+<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+  <section id="services" class="my-12 pt-12">
+    <div class="container mx-auto px-4 pt-12">
+        <h6 class="text-base font-medium leading-tight">Our Services</h6>
+        <h2 class="text-4xl font-bold leading-snug mb-4 mt-2">What we provide</h2>
+        <div class="flex flex-wrap -mx-4">
+            <div class="mt-4 px-4 w-full md:w-1/2 lg:w-1/4">
+                <div class="services-components text-center py-5 px-3">
+                    <iconify-icon class="services-icon my-2" icon="mdi:home-roof"></iconify-icon>
+                    <h5 class="text-xl font-medium mb-3">Roof replacement</h5>
+                    <p class="mb-3">Sagittis pulvinar ut dis venenatis nunc vitae aliquam vestibulum. Elit adipiscing massa diam.</p>
+                    <a href="services-single.html" class="inline-block bg-primary text-white py-2 px-4 rounded mt-3">read more</a>
+                </div>
+            </div>
+            <div class="mt-4 px-4 w-full md:w-1/2 lg:w-1/4">
+                <div class="services-components text-center py-5 px-3">
+                    <iconify-icon class="services-icon my-2" icon="mdi:weather-lightning"></iconify-icon>
+                    <h5 class="text-xl font-medium mb-3">Damage Repair</h5>
+                    <p class="mb-3">Vitae aliquam diam vestibulum. Elit adipiscing massa diam in dignissim risus tellus libero.</p>
+                    <a href="services-single.html" class="inline-block bg-primary text-white py-2 px-4 rounded mt-3">read more</a>
+                </div>
+            </div>
+            <div class="mt-4 px-4 w-full md:w-1/2 lg:w-1/4">
+                <div class="services-components text-center py-5 px-3">
+                    <iconify-icon class="services-icon my-2" icon="mdi:hammer"></iconify-icon>
+                    <h5 class="text-xl font-medium mb-3">Roof Repair</h5>
+                    <p class="mb-3">Pulvinar ut dis venenatis nunc vitae aliquam vestibulum. Elit adipiscing massa diamo.</p>
+                    <a href="services-single.html" class="inline-block bg-primary text-white py-2 px-4 rounded mt-3">read more</a>
+                </div>
+            </div>
+            <div class="mt-4 px-4 w-full md:w-1/2 lg:w-1/4">
+                <div class="services-components text-center py-5 px-3">
+                    <iconify-icon class="services-icon my-2" icon="mdi:white-balance-sunny"></iconify-icon>
+                    <h5 class="text-xl font-medium mb-3">Roof Solar System</h5>
+                    <p class="mb-3">Nunc vitae aliquam vestibulum. Elit adipiscing massa diam in dignissim risus tellus libero.</p>
+                    <a href="services-single.html" class="inline-block bg-primary text-white py-2 px-4 rounded mt-3">read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</section>
+
+<style>
+
+
+</style>
